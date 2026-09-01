@@ -3,6 +3,7 @@ class Post < ApplicationRecord
 
   has_many :like_relationships, class_name: "Like", foreign_key: :post_id, dependent: :destroy
   has_many :likers, through: :like_relationships, source: :user
+  has_many :comments, dependent: :destroy
 
   belongs_to :user
 end

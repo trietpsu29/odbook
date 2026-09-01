@@ -20,6 +20,8 @@ class User < ApplicationRecord
   has_many :like_relationships, class_name: "Like", foreign_key: :user_id, dependent: :destroy
   has_many :liked_posts, through: :like_relationships, source: :post
 
+  has_many :comments, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end
