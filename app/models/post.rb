@@ -5,5 +5,6 @@ class Post < ApplicationRecord
   has_many :likers, through: :like_relationships, source: :user
   has_many :comments, dependent: :destroy
 
+  has_many_attached :images
   belongs_to :user
 end

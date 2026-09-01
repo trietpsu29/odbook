@@ -1,2 +1,6 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<%= form_with model: @post do |f| %>
+  <%= f.text_area :title %>
+  <%= f.text_area :body %>
+  <%= f.file_field :images, multiple: true %>
+  <%= f.submit %>
+<% end %>
