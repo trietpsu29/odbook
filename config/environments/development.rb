@@ -77,4 +77,19 @@ Rails.application.configure do
   # config.generators.apply_rubocop_autocorrect_after_generate!
   config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
   config.active_storage.service = :cloudinary
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:         "smtp.gmail.com",
+    port:            587,
+    domain:          "gmail.com",
+    user_name:       Rails.application.credentials.dig(:smtp, :username),
+    password:        Rails.application.credentials.dig(:smtp, :password),
+    authentication:  "plain",
+    enable_starttls: true,
+    open_timeout:    5,
+    read_timeout:    5 }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
 end
