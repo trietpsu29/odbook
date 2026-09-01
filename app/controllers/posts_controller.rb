@@ -1,0 +1,58 @@
+class PostsController < ApplicationController
+  before_action :set_post, only: [ :edit, :update, :destroy ]
+  before_action :authorize_post, only: [ :edit, :update, :destroy ]
+
+  def index
+    @posts = Post.all
+  end
+
+  def new
+    @post = Post.new
+  end
+
+  def create
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      redirect_to posts_path
+    else
+      flash.now[:alert] = "Something went wrong"
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to posts_path
+    else
+      flash.now[:alert]= "Something went wrong"
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @post.destroy
+      redirect_to posts_path
+    else
+      redirect_to posts_path, alert: "Something went wrong"
+    end
+  end
+
+  private
+
+    def post_params
+      params.expect(post: [ :title, :body ])
+    end
+
+    def authorize_post
+      return if @post.user == current_user
+
+      redirect_to posts_path, alert: "You are not authorized to do that."
+    end
+
+    def set_post
+      @post = Post.find(params[:id])
+    end
+end
