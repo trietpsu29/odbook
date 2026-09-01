@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :follower_relationships, class_name: "Follow", foreign_key: :followed_id, dependent: :destroy
   has_many :followers, through: :follower_relationships, source: :follower
 
-  has_many :like_relationships, class_name: "Like", foreign_key: :user_id, dependent: :destroy
+  has_many :likes, class_name: "Like", foreign_key: :user_id, dependent: :destroy
   has_many :liked_posts, through: :like_relationships, source: :post
 
   has_many :comments, dependent: :destroy
