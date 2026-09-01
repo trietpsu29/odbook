@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get "users/index"
+  get "users/show"
+  get "users/edit"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -11,5 +14,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "posts#index"
+  resources :posts
+  resources :users, only: %i[index, show, edit update destroy]
 end
