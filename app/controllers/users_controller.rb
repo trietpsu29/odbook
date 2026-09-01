@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.expect(user: [ :name, :bio ])
+      params.expect(user: [ :name, :bio, :avatar ])
     end
 
     def authorize_user
