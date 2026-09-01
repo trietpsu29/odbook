@@ -2,13 +2,13 @@ class FollowRequestsController < ApplicationController
   before_action :set_follow_request, only: [ :destroy, :accept ]
 
   def create
-    user = User.find(params[:user_id])
-    if user==current_user
+    @user = User.find(params[:user_id])
+    if @user==current_user
       redirect_to users_path, alert: "You cannot follow yourself."
       return
     end
 
-    @follow_request = current_user.sent_follow_requests.build(requested: user)
+    @follow_request = current_user.sent_follow_requests.build(requested: @user)
 
     if @follow_request.save
       redirect_to users_path
