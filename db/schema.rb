@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_09_01_103327) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_01_120508) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_01_103327) do
     t.bigint "requester_id", null: false
     t.datetime "updated_at", null: false
     t.index ["requested_id"], name: "index_follow_requests_on_requested_id"
+    t.index ["requester_id", "requested_id"], name: "index_follow_requests_on_requester_id_and_requested_id", unique: true
     t.index ["requester_id"], name: "index_follow_requests_on_requester_id"
   end
 
@@ -29,6 +30,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_09_01_103327) do
     t.bigint "follower_id", null: false
     t.datetime "updated_at", null: false
     t.index ["followed_id"], name: "index_follows_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
