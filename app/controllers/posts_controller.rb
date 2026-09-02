@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [ :edit, :update, :destroy ]
   before_action :authorize_post, only: [ :edit, :update, :destroy ]
+  layout "authenticated"
 
   def index
     @posts = Post.all

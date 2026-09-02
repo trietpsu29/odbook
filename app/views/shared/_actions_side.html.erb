@@ -1,6 +1,9 @@
 <div class="actions-side">
   <%= yield %>
   <div class="credit">
-    © <%= Time.current.year %> OdBook · Triet Psu
+    © <%= Time.current.year %> OdBook · 
+    <%= link_to "Triet Psu", "https://github.com/trietpsu29",
+        target: "_blank",
+        rel: "noopener noreferrer" %>
   </div>
 </div>
