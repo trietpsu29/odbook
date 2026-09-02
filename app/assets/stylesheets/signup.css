@@ -1,4 +1,4 @@
-.login-container {
+.signup-container {
   color: white;
   display: flex;
   flex-direction: column;
@@ -8,30 +8,31 @@
   min-width: 25vw;
 }
 
-.login-container a {
+.signup-container a {
   color: #6798b096;
   text-decoration: none;
 }
 
-.login-form {
+.signup-form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.login-field {
+.signup-field {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
 
-.login-field input {
+.signup-field input {
   border-radius: 999px;
   border: none;
   padding: 12px 24px;
+  width: 100%;
 }
 
-.login-actions input[type="submit"] {
+.signup-actions input[type="submit"] {
   width: 100%;
   padding: 12px 24px;
   border-radius: 999px;
@@ -43,13 +44,14 @@
   text-wrap: nowrap;
 }
 
-.login-actions input[type="submit"]:hover {
+.signup-actions input[type="submit"]:hover {
   opacity: 0.9;
 }
 
-.login-actions input[type="submit"]:active {
+.signup-actions input[type="submit"]:active {
   transform: scale(0.97);
 }
+
 .form-error {
   color: #ff6b6b;
   font-size: 0.85rem;
