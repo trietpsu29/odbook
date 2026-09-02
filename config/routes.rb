@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "follows/destroy"
+  get "pages/home"
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root "posts#index"
+  root "pages#home"
 
   resources :posts, only: %i[index new create edit update destroy] do
     resources :likes, only: %i[create destroy]

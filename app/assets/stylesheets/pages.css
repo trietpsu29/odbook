@@ -1,0 +1,114 @@
+.landing-page {
+  display: flex;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+}
+
+.brand-side {
+  flex: 0 0 40%;
+  padding-right: 2rem;
+  background-image: url("landing-page-bg.jpg");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+}
+
+.actions-side {
+  flex: 1;
+  position: relative;
+
+  background-color: #020719;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.credit {
+  position: absolute;
+  bottom: 1rem;
+  text-align: center;
+
+  color: white;
+  font-size: 0.8rem;
+}
+
+.brand {
+  text-align: right;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.actions {
+  height: 100vh;
+  width: 45%;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+.acc {
+  display: flex;
+  gap: 1rem;
+}
+
+.acc form {
+  flex: 1;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  text-wrap: nowrap;
+}
+.divider {
+  color: rgb(170, 166, 166);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: white;
+  opacity: 0.5;
+}
+
+.google-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.google-btn img {
+  width: 30px;
+  height: 30px;
+}
+button:hover {
+  opacity: 0.9;
+}
+button:active {
+  transform: scale(0.97);
+}

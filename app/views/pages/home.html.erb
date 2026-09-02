@@ -1,0 +1,34 @@
+<main class="landing-page">
+  <div class="container">
+    <div class="brand-side">
+      <div class="brand">
+        <h1>Welcome to OdBook</h1>
+        <p>
+          Bond with the world.<br>
+          Be yourself.
+        </p>
+      </div>
+    </div>
+    <div class="actions-side">
+      <div class="actions">
+        <div class="acc">
+          <%= button_to "Log in", new_user_session_path, class: "btn", method: :get %>
+          <%= button_to "Sign up", new_user_registration_path, class: "btn", method: :get %>
+        </div>
+        <div class="divider">
+          <span>or</span>
+        </div>
+        <%= button_to user_google_oauth2_omniauth_authorize_path,
+              method: :post,
+              data: { turbo: false },
+              class: "btn google-btn" do %>
+          <%= image_tag "google-color.svg", alt: "" %>
+          <span>Continue with Google</span>
+        <% end %>
+      </div>
+      <div class="credit">
+        © <%= Time.current.year %> OdBook · Triet Psu
+      </div>
+    </div>
+  </div>
+</main>
