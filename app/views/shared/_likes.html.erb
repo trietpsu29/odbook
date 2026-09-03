@@ -2,10 +2,11 @@
   <div class="post-like">
     <% user_like = post.likes.find_by(user: current_user) %>
     <% if user_like %>
-      <%= button_to "♥",
-        post_like_path(post, user_like),
-        method: :delete,
-        class: "like-button liked" %>
+      <%= button_to post_like_path(post, user_like),
+      method: :delete,
+      class: "like-button liked" do %>
+        <%= image_tag "heart.svg" %>
+      <% end %>
     <% else %>
       <%= button_to "Like",
         post_likes_path(post),

@@ -32,5 +32,23 @@
       <% end %>
     </div>
   <% end %>
-  <%= render "shared/likes", post: post %>
-  <%= render "shared/comments", post: post %>
+  <div data-controller="comments">
+    <div class="post-footer">
+      <%= render "shared/likes", post: post %>
+      <button
+          class="comment-button"
+          data-action="click->comments#toggle">
+        <%= image_tag "comment.svg", 
+        data: { 
+        comments_target: "icon", 
+        outline_src: asset_path("comment.svg"), 
+        fill_src: asset_path("comment-fill.svg") 
+        }, 
+        class: "comment-icon" %>
+        <span id="comments_count_<%= post.id %>">
+          <%= post.comments.count %>
+        </span>
+      </button>
+    </div>
+    <%= render "shared/comments", post: post %>
+  </div>

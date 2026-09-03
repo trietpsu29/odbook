@@ -1,21 +1,11 @@
-<div data-controller="comments">
-  <button 
-      class="comment-button" 
-      data-action="click->comments#toggle">
-    <%= image_tag "comment.svg" %>
-    <span id="comments_count_<%= post.id %>">
-      <%= post.comments.count %>
-    </span>
-  </button>
-  <div data-comments-target="section" class="hidden">
-    <div id="comments_list_<%= post.id %>">
-      <% post.comments.each do |comment| %>
-        <%= render "shared/comment", comment: comment %>
-      <% end %>
-    </div>
-    <%= form_with model: [post, Comment.new] do |form| %>
-      <%= form.text_field :body %>
-      <%= form.submit "Comment" %>
+<div data-comments-target="section" class="comment-section hidden">
+  <div id="comments_list_<%= post.id %>">
+    <% post.comments.each do |comment| %>
+      <%= render "shared/comment", comment: comment %>
     <% end %>
   </div>
+  <%= form_with model: [post, Comment.new] do |form| %>
+    <%= form.text_field :body %>
+    <%= form.submit "Comment" %>
+  <% end %>
 </div>

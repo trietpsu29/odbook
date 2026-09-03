@@ -37,11 +37,14 @@
 
 .post-info img:hover,
 .post-info h3:hover,
-.like-button:hover,
 .options-btn:hover,
 .dropdown-menu a:hover,
 .dropdown-menu button:hover {
   opacity: 0.7;
+}
+
+.like-button:hover {
+  transform: scale(0.95);
 }
 
 .post-card img {
@@ -61,7 +64,6 @@
 
 .post-like {
   display: flex;
-  align-items: center;
   gap: 0.5rem;
   font-size: 1.3rem;
 }
@@ -74,12 +76,22 @@
   cursor: pointer;
   color: white;
 }
-
-.like-button.liked {
-  color: white;
-  font-size: 1.5rem;
+.post-footer form {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
-.options-btn img {
+
+.like-button img {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.like-button:active {
+  transform: scale(0.95);
+}
+
+te .options-btn img {
   width: 30px;
   height: 30px;
 }
@@ -104,4 +116,9 @@
   border-radius: 8px;
 
   padding: 10px;
+}
+.post-footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
