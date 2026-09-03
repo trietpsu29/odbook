@@ -1,5 +1,5 @@
 .header {
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   border: 1px solid #a7a7a7;
   position: sticky;
   top: 0;
@@ -8,7 +8,8 @@
 
 .nav {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 1.5rem;
 }
 
@@ -22,11 +23,23 @@
   display: flex;
   gap: 1.5rem;
 }
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.3rem;
+}
+
 .nav-logout {
   background: none;
   border: none;
   color: white;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.3rem;
 }
 
 .nav-logout:hover,
@@ -35,4 +48,9 @@
 }
 .nav-links a:active {
   transform: scale(0.96);
+}
+.nav-link img,
+.nav-logout img {
+  width: 30px;
+  height: 30px;
 }

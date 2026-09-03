@@ -1,0 +1,36 @@
+<div class="post-card">
+  <div class="post-header">
+    <%= link_to user_path(post.user), class: "post-info" do %>
+      <%= user_avatar(post.user) %>
+      <h3>
+        <%= post.user.name.presence || post.user.email %>
+      </h3>
+      <span>
+        <%= post.updated_at.strftime("%d/%m/%Y %H:%M") %>
+      </span>
+    <% end %>
+    <% if current_user==post.user %>
+      <div class="post-options" data-controller="dropdown">
+        <button class="options-btn" data-action="click->dropdown#toggle">
+          <%= image_tag "dots.svg", alt: "Options" %>
+        </button>
+        <div data-dropdown-target="menu" class="dropdown-menu hidden">
+          <%= link_to "Edit", edit_post_path(post) %>
+          <%= button_to "Delete", post_path(post),method: :delete, data: { turbo_confirm: "Delete this post?" }%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <p>
+    <h1><%= post.title %></h1>
+    <%= post.body %>
+  </p>
+  <% if post.images.attached? %>
+    <div class="post-images">
+      <% post.images.each do |image| %>
+        <%= image_tag image %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= render "shared/likes", post: post %>
+  <%= render "shared/comments", post: post %>

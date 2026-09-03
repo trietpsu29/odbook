@@ -2,12 +2,20 @@
   <nav class="nav">
     <%= link_to "OdBook", posts_path, class: "nav-logo" %>
     <div class="nav-links">
-      <%= link_to "Community", users_path %>
-      <%= link_to "Profile", user_path(current_user) %>
-      <%= button_to "Log out",
-          destroy_user_session_path,
-          method: :delete,
-          class: "nav-logout" %>
+      <%= link_to users_path, class: "nav-link" do %>
+        <%= image_tag "community.svg", alt: "Community" %>
+        <span>Community</span>
+      <% end %>
+      <%= link_to user_path(current_user), class: "nav-link" do %>
+        <%= image_tag "profile.svg", alt: "Profile" %>
+        <span>Profile</span>
+      <% end %>
     </div>
+    <%= button_to destroy_user_session_path,
+          method: :delete,
+          class: "nav-logout" do %>
+      <%= image_tag "logout.svg", alt: "Logout" %>
+      <span>Log out</span>
+    <% end %>
   </nav>
 </header>

@@ -64,6 +64,10 @@ a {
   color: white;
 }
 
+.hidden {
+  display: none;
+}
+
 @import "landing";
 @import "page";
 @import "login";

@@ -3,7 +3,10 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(user: current_user, body: comment_params[:body])
     if @comment.save
-      redirect_to posts_path
+      respond_to do |format|
+       format.turbo_stream
+       format.html { redirect_to posts_path }
+     end
     else
       redirect_to posts_path, alert: "Something went wrong"
     end
@@ -16,7 +19,10 @@ class CommentsController < ApplicationController
       return
     end
     if @comment.destroy
-      redirect_to posts_path
+      respond_to do |format|
+       format.turbo_stream
+       format.html { redirect_to posts_path }
+     end
     else
       redirect_to posts_path, alert: "Something went wrong"
     end
