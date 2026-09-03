@@ -1,11 +1,9 @@
 module UsersHelper
-  def user_avatar(user, size: 40)
+  def user_avatar(user, class_name: "avatar")
     if user.avatar.attached?
-      image_tag user.avatar, class: "avatar", size: "#{size}x#{size}"
-    elsif user.avatar_url.present?
-      image_tag user.avatar_url, class: "avatar", size: "#{size}x#{size}"
+      image_tag user.avatar, class: "#{class_name}"
     else
-      image_tag "default-avatar.svg", class: "avatar", size: "#{size}x#{size}"
+      image_tag "default-avatar.svg", class: "#{class_name}"
     end
   end
 end

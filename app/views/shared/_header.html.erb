@@ -7,7 +7,7 @@
         <span>Community</span>
       <% end %>
       <%= link_to user_path(current_user), class: "nav-link" do %>
-        <%= user_avatar(current_user) %>
+        <%= user_avatar(current_user,class_name:"header-avatar") %>
         <span>Profile</span>
       <% end %>
     </div>

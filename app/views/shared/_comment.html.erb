@@ -1,6 +1,6 @@
 <div class="comment">
   <%= link_to user_path(comment.user), class: "comment-info" do %>
-    <%= user_avatar(current_user) %>
+    <%= user_avatar(current_user,class_name:"comment-avatar") %>
   <% end %>
   <div class="comment-content">
     <div class="comment-header">

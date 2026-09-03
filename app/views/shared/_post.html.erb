@@ -1,7 +1,7 @@
 <div class="post-card">
   <div class="post-header">
     <%= link_to user_path(post.user), class: "post-info" do %>
-      <%= user_avatar(post.user) %>
+      <%= user_avatar(post.user, class_name:"post-avatar") %>
       <h3>
         <%= post.user.name.presence || post.user.email %>
       </h3>
@@ -27,8 +27,12 @@
   </p>
   <% if post.images.attached? %>
     <div class="post-images">
-      <% post.images.each do |image| %>
-        <%= image_tag image %>
+      <% post.images.each_with_index do |image, index| %>
+        <% if post.images.count % 2 == 1 && index == post.images.count - 1 %>
+          <%= image_tag image, class: "span-image" %>
+        <% else %>
+          <%= image_tag image %>
+        <% end %>
       <% end %>
     </div>
   <% end %>

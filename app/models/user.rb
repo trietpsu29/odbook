@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  require "open-uri"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   validates :name, length: { maximum: 50 }
@@ -31,7 +32,7 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.name = auth.info.name
-      user.avatar_url = auth.info.image
+      user.avatar.attach(io: URI.open(auth.info.image), filename: "avatar")
       user.password = Devise.friendly_token[0, 20]
     end
   end

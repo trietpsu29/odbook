@@ -1,8 +1,2 @@
 <h1><%= @user.name %></h1>
-<% if @user.avatar.attached? %>
-  <%= image_tag @user.avatar %>
-<% elsif @user.avatar_url.present? %>
-  <%= image_tag @user.avatar_url %>
-<% else %>
-  <p>No avatar yet</p>
-<% end %>
+<%= user_avatar(@user,class_name:"profile-avatar")%>
