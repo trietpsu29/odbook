@@ -14,6 +14,10 @@
   padding: 0;
 }
 
+html {
+  min-height: 100%;
+}
+
 body {
   font-family:
     "Roboto",
@@ -24,6 +28,10 @@ body {
     sans-serif;
   background-color: #020719;
   color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 img {
@@ -61,3 +69,4 @@ a {
 @import "login";
 @import "header";
 @import "footer";
+@import "index";

@@ -1,0 +1,70 @@
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-card {
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 12px;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.user-info img:hover,
+.user-info h3:hover {
+  opacity: 0.7;
+}
+
+.post-card img {
+  max-width: 300px;
+}
+.post-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.post-images img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.like-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: white;
+}
+.like-button:hover {
+  opacity: 0.7;
+}
+
+.like-button.liked {
+  color: white;
+  font-size: 1.5rem;
+}

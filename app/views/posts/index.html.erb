@@ -1,57 +1,64 @@
-<h1>Posts</h1>
-<% @posts.each do |post| %>
-  <div style="border: 1px solid black; padding: 20px; margin-bottom: 20px;">
-    <!-- User -->
-    <h3>
-      <%= post.user.name || post.user.email %>
-    </h3>
-    <!-- Content -->
-    <p>
-      <%= post.body %>
-    </p>
-    <!-- Images -->
-    <% if post.images.attached? %>
-      <% post.images.each do |image| %>
-        <%= image_tag image, width: 300 %>
-      <% end %>
-    <% end %>
-    <!-- Like -->
-    <div>
-      <% user_like = post.likes.find_by(user: current_user) %>
-      <% if user_like %>
-        <%= button_to "Unlike",
-          post_like_path(post, user_like),
-          method: :delete
-        %>
-      <% else %>
-        <%= button_to "Like",
-          post_likes_path(post),
-          method: :post
-        %>
-      <% end %>
-      <span>
-        <%= post.likes.count %> likes
-      </span>
-    </div>
-    <hr>
-    <!-- Comments -->
-    <h4>
-      Comments (<%= post.comments.count %>)
-    </h4>
-    <% post.comments.each do |comment| %>
-      <div>
-        <strong>
-          <%= comment.user.name || comment.user.email %>
-        </strong>
-        <%= comment.body %>
+<div class="post-container">
+  <% @posts.each do |post| %>
+    <div class="post-card">
+      <div class="post-header">
+        <%= link_to user_path(post.user), class: "user-info" do %>
+          <%= user_avatar(post.user) %>
+          <h3>
+            <%= post.user.name.presence || post.user.email %>
+          </h3>
+        <% end %>
+        <span class="post-time">
+          <%= post.updated_at.strftime("%d/%m/%Y %H:%M") %>
+        </span>
       </div>
-    <% end %>
-    <!-- Create comment -->
-    <%= form_with model: [post, Comment.new] do |form| %>
-      <%= form.text_field :body,
-          placeholder: "Write a comment..."
-      %>
-      <%= form.submit "Comment" %>
-    <% end %>
-  </div>
-<% end %>
+      <p>
+        <h1><%= post.title %></h1>
+        <%= post.body %>
+      </p>
+      <% if post.images.attached? %>
+        <div class="post-images">
+          <% post.images.each do |image| %>
+            <%= image_tag image %>
+          <% end %>
+        </div>
+      <% end %>
+      <div>
+        <% user_like = post.likes.find_by(user: current_user) %>
+        <% if user_like %>
+          <%= button_to "♥",
+        post_like_path(post, user_like),
+        method: :delete,
+        class: "like-button liked" %>
+        <% else %>
+          <%= button_to "Like",
+        post_likes_path(post),
+        method: :post,
+        class: "like-button" %>
+        <% end %>
+        <span>
+          <%= post.likes.count %>
+        </span>
+      </div>
+      <hr>
+      <!-- Comments -->
+      <h4>
+        Comments (<%= post.comments.count %>)
+      </h4>
+      <% post.comments.each do |comment| %>
+        <div>
+          <strong>
+            <%= comment.user.name.presence || comment.user.email %>
+          </strong>
+          <%= comment.body %>
+        </div>
+      <% end %>
+      <!-- Create comment -->
+      <%= form_with model: [post, Comment.new] do |form| %>
+        <%= form.text_field :body,
+            placeholder: "Write a comment..." %>
+        <%= form.submit "Comment" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
