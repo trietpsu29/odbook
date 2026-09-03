@@ -3,6 +3,14 @@
     <%= @post.comments.count %>
   </span>
 <% end %>
+<%= turbo_stream.replace "comment_form_#{@post.id}" do %>
+  <div id="comment_form_<%= @post.id %>">
+    <%= form_with model: [@post, Comment.new], class: "comment-form" do |form| %>
+      <%= form.text_field :body, class: "comment-input", placeholder: "Write a comment..." %>
+      <%= form.submit "Comment", class: "comment-submit" %>
+    <% end %>
+  </div>
+<% end %>
 <%= turbo_stream.append "comments_list_#{@post.id}" do %>
   <%= render "shared/comment", comment: @comment%>
 <% end %>

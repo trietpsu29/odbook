@@ -1,11 +1,15 @@
-<div data-comments-target="section" class="comment-section hidden">
-  <div id="comments_list_<%= post.id %>">
-    <% post.comments.each do |comment| %>
-      <%= render "shared/comment", comment: comment %>
-    <% end %>
+<div data-comments-target="section" class="hidden">
+  <div class="comment-section">
+    <div id="comments_list_<%= post.id %>">
+      <% post.comments.each do |comment| %>
+        <%= render "shared/comment", comment: comment %>
+      <% end %>
+    </div>
+    <div id="comment_form_<%= post.id %>">
+      <%= form_with model: [post, Comment.new], class: "comment-form" do |form| %>
+        <%= form.text_field :body, class: "comment-input", placeholder: "Write a comment..." %>
+        <%= form.submit "Comment", class: "comment-submit" %>
+      <% end %>
+    </div>
   </div>
-  <%= form_with model: [post, Comment.new] do |form| %>
-    <%= form.text_field :body %>
-    <%= form.submit "Comment" %>
-  <% end %>
 </div>

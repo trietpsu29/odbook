@@ -7,7 +7,7 @@
         <span>Community</span>
       <% end %>
       <%= link_to user_path(current_user), class: "nav-link" do %>
-        <%= image_tag "profile.svg", alt: "Profile" %>
+        <%= user_avatar(current_user) %>
         <span>Profile</span>
       <% end %>
     </div>

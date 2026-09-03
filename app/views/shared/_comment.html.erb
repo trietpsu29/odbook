@@ -1,6 +1,14 @@
 <div class="comment">
-  <strong>
-    <%= comment.user.name.presence || comment.user.email %>:
-  </strong>
-  <%= comment.body %>
+  <%= link_to user_path(comment.user), class: "comment-info" do %>
+    <%= user_avatar(current_user) %>
+  <% end %>
+  <div class="comment-content">
+    <div class="comment-header">
+      <%= link_to user_path(comment.user), class: "comment-info" do %>
+        <strong><%= comment.user.name.presence || comment.user.email %></strong>
+      <% end %>
+      <%= comment.updated_at.strftime("%d/%m/%Y %H:%M")%>
+    </div>
+    <%= comment.body %>
+  </div>
 </div>

@@ -13,7 +13,7 @@
 
 .post-card {
   padding: 20px;
-  border: 1px solid white;
+  border: 1px solid #ccc;
   border-radius: 12px;
   width: 50vw;
   display: flex;
@@ -40,7 +40,7 @@
 .options-btn:hover,
 .dropdown-menu a:hover,
 .dropdown-menu button:hover {
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 .like-button:hover {
@@ -121,4 +121,9 @@ te .options-btn img {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+}
+.post-footer-cotainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
