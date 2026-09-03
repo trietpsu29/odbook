@@ -24,18 +24,23 @@
 .post-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
 }
 
-.user-info {
+.post-info {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.7rem;
   text-decoration: none;
 }
 
-.user-info img:hover,
-.user-info h3:hover {
+.post-info img:hover,
+.post-info h3:hover,
+.like-button:hover,
+.options-btn:hover,
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
   opacity: 0.7;
 }
 
@@ -54,17 +59,47 @@
   display: block;
 }
 
-.like-button {
+.post-like {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.like-button,
+.options-btn,
+.dropdown-menu button {
   border: none;
   background: none;
   cursor: pointer;
   color: white;
 }
-.like-button:hover {
-  opacity: 0.7;
-}
 
 .like-button.liked {
   color: white;
   font-size: 1.5rem;
+}
+.hidden {
+  display: none;
+}
+.options-btn img {
+  width: 30px;
+  height: 30px;
+}
+.dropdown-menu a {
+  text-decoration: none;
+}
+.post-options {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  background: #020719;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  padding: 10px;
 }
