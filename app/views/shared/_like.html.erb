@@ -1,0 +1,19 @@
+<%= turbo_frame_tag "post_#{post.id}_like" do %>
+  <div class="post-like">
+    <% user_like = post.likes.find_by(user: current_user) %>
+    <% if user_like %>
+      <%= button_to "♥",
+        post_like_path(post, user_like),
+        method: :delete,
+        class: "like-button liked" %>
+    <% else %>
+      <%= button_to "Like",
+        post_likes_path(post),
+        method: :post,
+        class: "like-button" %>
+    <% end %>
+    <span>
+      <%= post.likes.count %>
+    </span>
+  </div>
+<% end %>

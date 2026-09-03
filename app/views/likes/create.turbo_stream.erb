@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "post_#{@post.id}_like" do %>
+  <%= render "shared/like", post: @post %>
+<% end %>
