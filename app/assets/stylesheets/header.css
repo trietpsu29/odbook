@@ -1,6 +1,6 @@
 .header {
   padding: 0.5rem 2rem;
-  border: 1px solid #a7a7a7;
+  border-bottom: 1px solid #a7a7a7;
   position: sticky;
   top: 0;
   background-color: #020719;
