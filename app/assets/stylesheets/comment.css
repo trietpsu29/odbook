@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .comment {
   display: flex;
   gap: 0.5rem;
@@ -33,7 +34,15 @@
   gap: 0.5rem;
   flex-wrap: wrap;
   word-break: break-word;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.comment-infos {
+  display: flex;
+  gap: 0.6rem;
+}
+
 [id^="comments_list_"] {
   display: flex;
   flex-direction: column;
@@ -86,19 +95,18 @@
 
 .comment-submit:hover,
 .comment-info:hover,
-.comment-button img:hover {
+.comment-button img:hover,
+.comment-delete-container:hover {
   opacity: 0.85;
 }
 
 .comment-submit:active,
-.comment-button img:active {
+.comment-button img:active,
+.comment-delete-container:active {
   transform: scale(0.95);
 }
 
-.comment-info {
+.comment-info,
+.comment-delete-btn {
   text-decoration: none;
-}
-.comment-delete-btn a {
-  display: flex;
-  justify-content: flex-end;
 }

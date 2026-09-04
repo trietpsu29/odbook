@@ -4,19 +4,22 @@
   <% end %>
   <div class="comment-content">
     <div class="comment-header">
-      <%= link_to user_path(comment.user), class: "comment-info" do %>
-        <strong><%= comment.user.name.presence || comment.user.email %></strong>
-      <% end %>
-      <%= comment.updated_at.strftime("%d/%m/%Y %H:%M")%>
-      <% if current_user == comment.user %>
-        <%= link_to "X",
-          post_comment_path(comment.post, comment),
-          class: "comment-delete-btn",
-          data: { turbo_method: :delete,
-                  turbo_confirm: "Delete this comment?" } %>
-      <% end %>
+      <div class="comment-infos">
+        <%= link_to user_path(comment.user), class: "comment-info" do %>
+          <strong><%= comment.user.name.presence || comment.user.email %></strong>
+        <% end %>
+        <%= comment.updated_at.strftime("%d/%m/%Y %H:%M")%>
+      </div>
+      <div class="comment-delete-container">
+        <% if current_user == comment.user %>
+          <%= link_to "X",
+            post_comment_path(comment.post, comment),
+            class: "comment-delete-btn",
+            data: { turbo_method: :delete,
+                    turbo_confirm: "Delete this comment?" } %>
+        <% end %>
+      </div>
     </div>
+    <%= comment.body %>
   </div>
-  <%= comment.body %>
-</div>
 </div>
