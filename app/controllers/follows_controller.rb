@@ -5,7 +5,7 @@ class FollowsController < ApplicationController
     if @follow.destroy
       redirect_to users_path
     else
-      redirect_to users_path, alert: "Something went wrong"
+      redirect_to users_path, alert: @follow.errors.full_messages.join("\n")
     end
   end
 private

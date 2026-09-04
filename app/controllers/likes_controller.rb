@@ -21,7 +21,7 @@ class LikesController < ApplicationController
         format.html { redirect_to posts_path }
       end
     else
-      redirect_to posts_path, alret: "Something went wrong"
+      redirect_to posts_path, alret: @like.errors.full_messages.join("\n")
     end
   end
 end

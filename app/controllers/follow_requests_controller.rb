@@ -41,7 +41,7 @@ class FollowRequestsController < ApplicationController
     if @follow_request.destroy
       redirect_to users_path
     else
-      redirect_to users_path, alert: "Something went wrong"
+      redirect_to users_path, alert: @follow_request.errors.full_messages.join("\n")
     end
   end
 

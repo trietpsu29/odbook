@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
        format.html { redirect_to posts_path }
      end
     else
-      redirect_to posts_path, alert: "Something went wrong"
+      redirect_to posts_path, @comment.errors.full_messages.join("\n")
     end
   end
 
@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
        format.html { redirect_to posts_path }
      end
     else
-      redirect_to posts_path, alert: "Something went wrong"
+      redirect_to posts_path, alert: @comment.errors.full_messages.join("\n")
     end
   end
 
