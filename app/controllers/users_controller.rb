@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [ :edit, :update, :destroy, :show ]
   before_action :authorize_user, only: [ :edit, :update, :destroy ]
+  layout "authenticated"
+
   def index
     @users = User.all
   end
