@@ -1,5 +1,4 @@
 <% if @post.errors.any? %>
-  <%= Rails.logger.debug "==========HELLO========"%>
   <%= turbo_stream.update "post_#{@post.id}" do %>
     <%= render "shared/post_form", post: @post %>
   <% end %>
@@ -9,7 +8,6 @@
     </script>
   <% end %>
 <% else %>
-  <%= Rails.logger.debug "==========HELLO2========"%>
   <%= turbo_stream.replace "post_#{@post.id}" do %>
     <%= render "shared/post", post: @post %>
   <% end %>

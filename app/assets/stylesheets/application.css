@@ -85,3 +85,4 @@ a {
 @import "post_form";
 @import "user";
 @import "dropdown";
+@import "devise_form";

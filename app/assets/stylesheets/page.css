@@ -27,10 +27,20 @@
   cursor: pointer;
   text-decoration: none;
   text-wrap: nowrap;
+  color: white;
+  background: #172554;
+}
+
+.btn:hover {
+  background: #1e3a8a;
+}
+
+.btn:active {
+  transform: scale(0.97);
 }
 
 .divider {
-  color: rgb(170, 166, 166);
+  color: #94a3b8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,8 +53,7 @@
   content: "";
   flex: 1;
   height: 1px;
-  background-color: white;
-  opacity: 0.5;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .google-btn {
@@ -52,17 +61,10 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  background: #172554;
 }
 
 .google-btn img {
   width: 30px;
   height: 30px;
-}
-
-.landing-page button:hover {
-  opacity: 0.9;
-}
-
-.landing-page button:active {
-  transform: scale(0.97);
 }

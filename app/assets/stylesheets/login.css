@@ -9,8 +9,13 @@
 }
 
 .login-container a {
-  color: #6798b096;
+  color: #63a4ff;
   text-decoration: none;
+}
+
+.login-container a:hover {
+  color: #1877f2;
+  text-decoration: underline;
 }
 
 .login-form {
@@ -25,10 +30,28 @@
   gap: 0.5rem;
 }
 
+.login-field label {
+  color: #bfdbfe;
+  font-weight: 600;
+}
+
 .login-field input {
   border-radius: 999px;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 12px 24px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  outline: none;
+}
+
+.login-field input::placeholder {
+  color: #93c5fd;
+}
+
+.login-field input:focus {
+  border-color: #1877f2;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .login-actions input[type="submit"] {
@@ -41,15 +64,36 @@
   font-weight: bold;
   cursor: pointer;
   text-wrap: nowrap;
+  background: #1877f2;
+  color: white;
 }
 
 .login-actions input[type="submit"]:hover {
-  opacity: 0.9;
+  background: #0d6efd;
 }
 
 .login-actions input[type="submit"]:active {
   transform: scale(0.97);
 }
+
+.login-links {
+  margin-top: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-links a {
+  color: #63a4ff;
+  text-decoration: none;
+}
+
+.login-links a:hover {
+  color: #1877f2;
+  text-decoration: underline;
+}
+
 .form-error {
   color: #ff6b6b;
   font-size: 0.85rem;

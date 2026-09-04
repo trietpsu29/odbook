@@ -9,8 +9,13 @@
 }
 
 .signup-container a {
-  color: #6798b096;
+  color: #63a4ff;
   text-decoration: none;
+}
+
+.signup-container a:hover {
+  color: #1877f2;
+  text-decoration: underline;
 }
 
 .signup-form {
@@ -25,11 +30,28 @@
   gap: 0.5rem;
 }
 
+.signup-field label {
+  color: #bfdbfe;
+  font-weight: 600;
+}
+
 .signup-field input {
   border-radius: 999px;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 12px 24px;
   width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  outline: none;
+}
+
+.signup-field input::placeholder {
+  color: #93c5fd;
+}
+
+.signup-field input:focus {
+  border-color: #1877f2;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .signup-actions input[type="submit"] {
@@ -42,10 +64,12 @@
   font-weight: bold;
   cursor: pointer;
   text-wrap: nowrap;
+  background: #1877f2;
+  color: white;
 }
 
 .signup-actions input[type="submit"]:hover {
-  opacity: 0.9;
+  background: #0d6efd;
 }
 
 .signup-actions input[type="submit"]:active {
