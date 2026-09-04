@@ -1,0 +1,11 @@
+<% if @post.errors.any? %>
+  <%= turbo_stream.update "post_#{@post.id}" do %>
+    <% @post.images.purge%>
+    <%= render "shared/post_form", post: @post %>
+  <% end %>
+  <%= turbo_stream.update "flash-container" do %>
+    <script>
+      alert("<%= j flash[:alert] %>");
+    </script>
+  <% end %>
+<% end %>

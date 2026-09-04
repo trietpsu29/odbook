@@ -16,11 +16,19 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+
     if @post.save
       redirect_to posts_path
     else
-      flash[:alert]= @post.errors.full_messages.join("\n")
-      redirect_to posts_path, status: :unprocessable_entity
+      respond_to do |format|
+        flash[:alert] = @post.errors.full_messages.join("\n")
+
+        if @post.errors[:images].any?
+          flash[:alert] += "\n\nPlease select another image, or save your text content and reload the page to clear the current selection."
+        end
+        format.turbo_stream { render status: :unprocessable_entity }
+        format.html { redirect_to posts_path, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -41,7 +49,9 @@ class PostsController < ApplicationController
     else
       respond_to do |format|
        flash[:alert] = @post.errors.full_messages.join("\n")
-       format.turbo_stream
+
+       format.turbo_stream { render status: :unprocessable_entity }
+       format.html { redirect_to posts_path, status: :unprocessable_entity }
      end
     end
   end
