@@ -2,12 +2,14 @@
   <nav class="nav">
     <%= link_to "OdBook", posts_path, class: "nav-logo" %>
     <div class="nav-links">
-      <%= link_to users_path, class: "nav-link" do %>
+      <%= link_to users_path,
+          class: "nav-link #{'active' if current_page?(users_path)}" do %>
         <%= image_tag "community.svg", alt: "Community" %>
         <span>Community</span>
       <% end %>
-      <%= link_to user_path(current_user), class: "nav-link" do %>
-        <%= user_avatar(current_user,class_name:"header-avatar") %>
+      <%= link_to user_path(current_user),
+          class: "nav-link #{'active' if current_page?(user_path(current_user))}" do %>
+        <%= user_avatar(current_user, class_name:"header-avatar") %>
         <span>Profile</span>
       <% end %>
     </div>
