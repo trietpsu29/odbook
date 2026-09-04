@@ -25,7 +25,9 @@
       { name: "Requests", path: users_path(filter: "requests") }
     ] %>
   </div>
-  <% @users.each do |user| %>
-    <%= render "shared/user", user: user%>
-  <% end %>
+  <div id="users_list">
+    <% @users.each do |user| %>
+      <%= render "shared/user", user: user %>
+    <% end %>
+  </div>
 </main>

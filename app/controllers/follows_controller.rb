@@ -3,9 +3,32 @@ class FollowsController < ApplicationController
   before_action :authorize_follow
   def destroy
     if @follow.destroy
-      redirect_to users_path
+      respond_to do |format|
+        format.turbo_stream do
+          render "shared/update_follow_button",
+          locals: { user: @follow.followed }
+        end
+        format.html do
+          redirect_to users_path
+        end
+      end
     else
       redirect_to users_path, alert: @follow.errors.full_messages.join("\n")
+      respond_to do |format|
+        flash.now[:alert] = @follow.errors.full_messages.join("\n")
+
+        format.turbo_stream do
+          render "shared/update_follow_button",
+            locals: { user: user },
+            status: :unprocessable_entity
+        end
+
+        format.html do
+          redirect_to users_path,
+            alert: @follow.errors.full_messages.join("\n"),
+            status: :unprocessable_entity
+        end
+      end
     end
   end
 private
@@ -15,6 +38,20 @@ private
 
   def authorize_follow
     return if @follow.follower==current_user || @follow.followed==current_user
-    redirect_to users_path, alert: "You are not authorized to do that."
+    respond_to do |format|
+        flash.now[:alert] = @follow.errors.full_messages.join("\n")
+
+        format.turbo_stream do
+          render "shared/update_follow_button",
+            locals: { user: user },
+            status: :unprocessable_entity
+        end
+
+        format.html do
+          redirect_to users_path,
+            alert: @follow.errors.full_messages.join("\n"),
+            status: :unprocessable_entity
+        end
+      end
   end
 end

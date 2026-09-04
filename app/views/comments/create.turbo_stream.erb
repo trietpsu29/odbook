@@ -12,5 +12,5 @@
   </div>
 <% end %>
 <%= turbo_stream.append "comments_list_#{@post.id}" do %>
-  <%= render "shared/comment", comment: @comment%>
+  <%= render "shared/comment", comment: @comment %>
 <% end %>

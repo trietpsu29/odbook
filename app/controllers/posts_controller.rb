@@ -48,7 +48,7 @@ class PostsController < ApplicationController
      end
     else
       respond_to do |format|
-       flash[:alert] = @post.errors.full_messages.join("\n")
+       flash.now[:alert] = @post.errors.full_messages.join("\n")
 
        format.turbo_stream { render status: :unprocessable_entity }
        format.html { redirect_to posts_path, status: :unprocessable_entity }
