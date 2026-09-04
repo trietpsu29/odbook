@@ -13,10 +13,6 @@
   height: 30px;
 }
 
-.custom-file-upload:hover {
-  transform: scale(0.95);
-}
-
 .post-form {
   display: flex;
   width: 40vw;
@@ -82,7 +78,8 @@
   opacity: 0.85;
 }
 
-.post-submit-button:active {
+.post-submit-button:active,
+.custom-file-upload:active {
   transform: scale(0.95);
 }
 
@@ -94,4 +91,21 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+.post-form-cancel-btn a {
+  text-decoration: none;
+}
+
+.post-form-cancel-btn a:hover,
+.custom-file-upload:hover {
+  opacity: 0.85;
+}
+
+.post-form-cancel-btn a:active {
+  transform: scale(0.9);
+}
+
+.post-form-cancel-btn {
+  display: flex;
+  justify-content: flex-end;
 }

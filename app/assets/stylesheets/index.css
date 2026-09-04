@@ -45,12 +45,9 @@
 
 .post-info img:hover,
 .post-info h3:hover,
-.post-images img:hover {
-  opacity: 0.85;
-}
-
+.post-images img:hover,
 .like-button:hover {
-  transform: scale(0.95);
+  opacity: 0.85;
 }
 
 .post-images {

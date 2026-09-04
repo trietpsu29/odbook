@@ -1,5 +1,11 @@
 <div class="post-form">
   <%= form_with model: post, class: "post-form-content" do |f| %>
+    <div class="post-form-cancel-btn">
+      <% if post.persisted? %>
+        <%= link_to "X",
+              posts_path%>
+      <% end %>
+    </div>
     <%= f.text_field :title,
         placeholder: "Title",
         class: "post-title-input" %>
@@ -10,10 +16,10 @@
       <div class="file-info" data-controller="file-preview">
         <%= f.file_field :images,
       multiple: true,
-      id: "file-upload",
+      id: post.persisted? ? "file-upload_update" : "file-upload",
       class: "file-input",
       data: { action: "change->file-preview#show" } %>
-        <label for="file-upload" class="custom-file-upload">
+        <label for=<%= post.persisted? ? "file-upload_update" : "file-upload" %> class="custom-file-upload">
           <%= image_tag "image-icon.svg" %>
         </label>
         <span data-file-preview-target="count"></span>

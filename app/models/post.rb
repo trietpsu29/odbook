@@ -7,4 +7,16 @@ class Post < ApplicationRecord
 
   has_many_attached :images
   belongs_to :user
+
+  validate :images_size_validation
+
+  private
+
+    def images_size_validation
+      images.each do |image|
+        if image.blob.byte_size > 10.megabytes
+          errors.add(:images, "must be smaller than 10MB")
+        end
+      end
+    end
 end

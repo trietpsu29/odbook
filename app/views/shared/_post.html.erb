@@ -1,63 +1,65 @@
-<div class="post-card">
-  <div class="post-header">
-    <div class="post-infos">
-      <%= link_to user_path(post.user), class: "post-info" do %>
-        <%= user_avatar(post.user, class_name:"post-avatar") %>
-        <h3>
-          <%= post.user.name.presence || post.user.email %>
-        </h3>
-      <% end %>
-      <span>
-        <%= post.updated_at.strftime("%d/%m/%Y %H:%M") %>
-      </span>
-    </div>
-    <% if current_user==post.user %>
-      <%= render "shared/dropdown",
+<%= turbo_frame_tag "post_#{post.id}" do %>
+  <div class="post-card">
+    <div class="post-header">
+      <div class="post-infos">
+        <%= link_to user_path(post.user), class: "post-info" do %>
+          <%= user_avatar(post.user, class_name:"post-avatar") %>
+          <h3>
+            <%= post.user.name.presence || post.user.email %>
+          </h3>
+        <% end %>
+        <span>
+          <%= post.updated_at.strftime("%d/%m/%Y %H:%M") %>
+        </span>
+      </div>
+      <% if current_user==post.user %>
+        <%= render "shared/dropdown",
     button_icon: "dots.svg",
     button_alt: "Options",
     options: [
-      { name: "Edit", path: edit_post_path(post) },
-      { name: "Delete", path: post_path(post) }
+      { name: "Edit", path: edit_post_path(post), data: { turbo_frame: "post_#{post.id}" } },
+      { name: "Delete", path: post_path(post), method: :delete}
     ] %>
-    <% end %>
-  </div>
-  <p>
-    <h1><%= post.title %></h1>
-    <%= post.body %>
-  </p>
-  <% if post.images.attached? %>
-    <div class="post-images">
-      <% post.images.each_with_index do |image, index| %>
-        <% if post.images.count % 2 == 1 && index == post.images.count - 1 %>
-          <%= link_to image, class: "span-image", target: "_blank" do %>
-            <%= image_tag image %>
-          <% end %>
-        <% else %>
-          <%= link_to image, target: "_blank" do %>
-            <%= image_tag image %>
-          <% end %>
-        <% end %>
       <% end %>
     </div>
-  <% end %>
-  <div data-controller="comments" class="post-footer-cotainer">
-    <div class="post-footer">
-      <%= render "shared/likes", post: post %>
-      <button
+    <p>
+      <h1><%= post.title %></h1>
+      <%= post.body %>
+    </p>
+    <% if post.images.attached? %>
+      <div class="post-images">
+        <% post.images.each_with_index do |image, index| %>
+          <% if post.images.count % 2 == 1 && index == post.images.count - 1 %>
+            <%= link_to image, class: "span-image", target: "_blank" do %>
+              <%= image_tag image %>
+            <% end %>
+          <% else %>
+            <%= link_to image, target: "_blank" do %>
+              <%= image_tag image %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+    <div data-controller="comments" class="post-footer-cotainer">
+      <div class="post-footer">
+        <%= render "shared/likes", post: post %>
+        <button
           class="comment-button"
           data-action="click->comments#toggle">
-        <%= image_tag "comment.svg", 
+          <%= image_tag "comment.svg", 
         data: { 
         comments_target: "icon", 
         outline_src: asset_path("comment.svg"), 
         fill_src: asset_path("comment-fill.svg") 
         }, 
         class: "comment-icon" %>
-        <span id="comments_count_<%= post.id %>">
-          <%= post.comments.count %>
-        </span>
-      </button>
+          <span id="comments_count_<%= post.id %>">
+            <%= post.comments.count %>
+          </span>
+        </button>
+      </div>
+      <%= render "shared/comments", post: post %>
     </div>
-    <%= render "shared/comments", post: post %>
   </div>
-</div>
+<% end %>

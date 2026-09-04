@@ -4,7 +4,17 @@
   </button>
   <div data-dropdown-target="menu" class="dropdown-menu hidden">
     <% options.each do |option| %>
-      <%= link_to option[:name], option[:path] %>
+      <% if option[:method] == :delete %>
+        <%= button_to option[:name],
+            option[:path],
+            method: :delete,
+            class: "dropdown-btn",
+            data: { turbo_confirm: "Delete this post?" } %>
+      <% else %>
+        <%= link_to option[:name],
+            option[:path],
+            data: option[:data] %>
+      <% end %>
     <% end %>
   </div>
 </div>

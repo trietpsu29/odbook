@@ -28,8 +28,16 @@ class PostsController < ApplicationController
   end
 
   def update
+    new_images = params[:post][:images]&.reject(&:blank?)
+
+    params[:post].delete(:images)
+
     if @post.update(post_params)
-      redirect_to posts_path
+      @post.images.attach(new_images) if new_images.present?
+      respond_to do |format|
+       format.turbo_stream
+       format.html { redirect_to posts_path }
+     end
     else
       flash.now[:alert]= @post.errors.full_messages.join("\n")
       render :edit, status: :unprocessable_entity
@@ -47,7 +55,13 @@ class PostsController < ApplicationController
   private
 
     def post_params
-      params.expect(post: [ :title, :body, images: [] ])
+      permitted = params.expect(post: [ :title, :body, images: [] ])
+
+      if permitted[:images]&.all?(&:blank?)
+        permitted.delete(:images)
+      end
+
+      permitted
     end
 
     def authorize_post

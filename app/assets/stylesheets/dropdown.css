@@ -29,15 +29,13 @@
   position: relative;
 }
 
-.dropdown-btn:active {
-  transform: scale(0.9);
+.dropdown-btn:active,
+.dropdown-menu a:active {
+  transform: scale(0.95);
 }
 .dropdown-btn img {
   width: 30px;
   height: 30px;
-}
-.dropdown-btn:hover {
-  opacity: 0.85;
 }
 .dropdown-btn {
   border: none;
