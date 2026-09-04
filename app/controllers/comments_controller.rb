@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     if @comment.user != current_user && @comment.post.user != current_user
       redirect_to posts_path,  alert: "You cannot perform this action."

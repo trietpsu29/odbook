@@ -19,8 +19,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path
     else
-      flash.now[:alert] = @post.errors.full_messages.join("\n")
-      render :new, status: :unprocessable_entity
+      flash[:alert]= @post.errors.full_messages.join("\n")
+      redirect_to posts_path, status: :unprocessable_entity
     end
   end
 
@@ -39,8 +39,10 @@ class PostsController < ApplicationController
        format.html { redirect_to posts_path }
      end
     else
-      flash.now[:alert]= @post.errors.full_messages.join("\n")
-      render :edit, status: :unprocessable_entity
+      respond_to do |format|
+       flash[:alert] = @post.errors.full_messages.join("\n")
+       format.turbo_stream
+     end
     end
   end
 

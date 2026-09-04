@@ -19,11 +19,8 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <% if flash[:alert] %>
-      <script>
-        alert("<%= flash[:alert] %>");
-      </script>
-    <% end %>
+    <div id="flash-container">
+    </div>
     <%= render "shared/header"%>
     <%= yield %>
     <%= render "shared/footer" %>

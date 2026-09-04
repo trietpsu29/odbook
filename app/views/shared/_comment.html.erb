@@ -1,6 +1,6 @@
 <div class="comment">
   <%= link_to user_path(comment.user), class: "comment-info" do %>
-    <%= user_avatar(current_user,class_name:"comment-avatar") %>
+    <%= user_avatar(comment.user,class_name:"comment-avatar") %>
   <% end %>
   <div class="comment-content">
     <div class="comment-header">
@@ -8,7 +8,15 @@
         <strong><%= comment.user.name.presence || comment.user.email %></strong>
       <% end %>
       <%= comment.updated_at.strftime("%d/%m/%Y %H:%M")%>
+      <% if current_user == comment.user %>
+        <%= link_to "X",
+          post_comment_path(comment.post, comment),
+          class: "comment-delete-btn",
+          data: { turbo_method: :delete,
+                  turbo_confirm: "Delete this comment?" } %>
+      <% end %>
     </div>
-    <%= comment.body %>
   </div>
+  <%= comment.body %>
+</div>
 </div>

@@ -98,3 +98,7 @@
 .comment-info {
   text-decoration: none;
 }
+.comment-delete-btn a {
+  display: flex;
+  justify-content: flex-end;
+}

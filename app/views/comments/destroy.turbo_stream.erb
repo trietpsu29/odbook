@@ -1,0 +1,12 @@
+<%= turbo_stream.replace "comments_count_#{@post.id}" do %>
+  <span id="comments_count_<%= @post.id %>">
+    <%= @post.comments.count %>
+  </span>
+<% end %>
+<%= turbo_stream.replace "comments_list_#{@post.id}" do %>
+  <div id="comments_list_<%= @post.id %>">
+    <% @post.comments.each do |comment| %>
+      <%= render "shared/comment", comment: comment %>
+    <% end %>
+  </div>
+<% end %>
