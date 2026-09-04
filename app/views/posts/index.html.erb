@@ -1,4 +1,5 @@
 <main class="post-container">
+  <%= render "shared/post_form", post: @post %>
   <% @posts.each do |post| %>
     <%= render "shared/post", post: post%>
   <% end %>

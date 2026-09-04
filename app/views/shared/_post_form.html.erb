@@ -1,0 +1,24 @@
+<div class="post-form">
+  <%= form_with model: post, class: "post-form-content" do |f| %>
+    <%= f.text_field :title,
+        placeholder: "Title",
+        class: "post-title-input" %>
+    <%= f.text_area :body,
+        placeholder: "What's on your mind?",
+        class: "post-body-input" %>
+    <div class="post-form-actions">
+      <div class="file-info" data-controller="file-preview">
+        <%= f.file_field :images,
+      multiple: true,
+      id: "file-upload",
+      class: "file-input",
+      data: { action: "change->file-preview#show" } %>
+        <label for="file-upload" class="custom-file-upload">
+          <%= image_tag "image-icon.svg" %>
+        </label>
+        <span data-file-preview-target="count"></span>
+      </div>
+      <%= f.submit "Post", class: "post-submit-button" %>
+    </div>
+  <% end %>
+</div>

@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   layout "authenticated"
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user, images_attachments: :blob)
+    .where(user: [ current_user.following, current_user ])
+    .order(created_at: :desc)
+    @post = current_user.posts.build
   end
 
   def new
@@ -16,7 +19,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path
     else
-      flash.now[:alert] = "Something went wrong"
+      flash.now[:alert] = @post.errors.full_messages.join("\n")
       render :new, status: :unprocessable_entity
     end
   end
@@ -28,7 +31,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to posts_path
     else
-      flash.now[:alert]= "Something went wrong"
+      flash.now[:alert]= @post.errors.full_messages.join("\n")
       render :edit, status: :unprocessable_entity
     end
   end
