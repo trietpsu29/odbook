@@ -14,14 +14,14 @@
   gap: 1.5rem;
 }
 
-.nav-logo {
-  opacity:;
-}
-
 .nav-logo,
 .nav-links a {
   color: white;
   text-decoration: none;
+}
+
+.nav-links a {
+  opacity: 0.8;
 }
 
 .nav-links {
@@ -39,7 +39,7 @@
 .nav-link.active {
   opacity: 1;
   font-weight: bold;
-  border-bottom: 5px solid #1877f2;
+  border-bottom: 3px solid #1877f2;
   border-radius: 5px;
 }
 
