@@ -5,9 +5,18 @@
   border: 1px solid #ccc;
   border-radius: 12px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   gap: 1rem;
   word-break: break-word;
+  flex-wrap: wrap;
+}
+
+.user-infos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .user-info {
@@ -26,20 +35,57 @@
 .user-details {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .user-stats {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 .user-avatar:hover,
 .user-name:hover,
 .user-bio:hover {
   opacity: 0.85;
 }
-.user-bio {
-  max-width: 325px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
+.user-header {
+  display: flex;
+  justify-content: space-between;
+  width: 40vw;
+  min-width: 0;
+}
+.follow-button {
+  padding: 0.6rem 0.8rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #1877f2;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  min-width: 0;
+  white-space: normal;
+  min-width: 90px;
+}
+
+.follow-button.remove-follower,
+.follow-button.unrequested,
+.follow-button.unfollow,
+.follow-button.reject {
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  background-color: transparent;
+}
+.follow-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.follow-button:hover {
+  opacity: 0.85;
+}
+
+.follow-button:active {
+  transform: scale(0.95);
 }

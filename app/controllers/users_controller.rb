@@ -4,7 +4,24 @@ class UsersController < ApplicationController
   layout "authenticated"
 
   def index
-    @users = User.all
+    case params[:filter]
+    when "following"
+      @users = current_user.following
+
+    when "followers"
+      @users = current_user.followers
+
+    when "requests"
+      @users = current_user.requesting_users
+
+    when "requested"
+      @users = current_user.requested_users
+
+    else
+      @users = User.all
+    end
+
+    @users = @users.includes(avatar_attachment: :blob)
   end
 
   def show

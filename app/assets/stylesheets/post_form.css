@@ -81,6 +81,11 @@
 .post-submit-button:hover {
   opacity: 0.85;
 }
+
+.post-submit-button:active {
+  transform: scale(0.95);
+}
+
 .post-body-input:focus,
 .post-title-input:focus {
   border-color: #1877f2;

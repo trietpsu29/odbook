@@ -1,0 +1,10 @@
+<div class="follow-actions">
+  <%= button_to "Accept",
+      accept_follow_request_path(request),
+      method: :patch,
+      class: "follow-button accept" %>
+  <%= button_to "Reject",
+      follow_request_path(request),
+      method: :delete,
+      class: "follow-button reject" %>
+</div>

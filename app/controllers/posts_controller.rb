@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.includes(:user, images_attachments: :blob)
-    .where(user: [ current_user.following, current_user ])
+    .where(user: current_user.following + [ current_user ])
     .order(created_at: :desc)
     @post = current_user.posts.build
   end

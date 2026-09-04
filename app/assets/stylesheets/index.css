@@ -45,9 +45,6 @@
 
 .post-info img:hover,
 .post-info h3:hover,
-.options-btn:hover,
-.dropdown-menu a:hover,
-.dropdown-menu button:hover,
 .post-images img:hover {
   opacity: 0.85;
 }
@@ -78,14 +75,13 @@
   font-size: 1.3rem;
 }
 
-.like-button,
-.options-btn,
-.dropdown-menu button {
+.like-button {
   border: none;
   background: none;
   cursor: pointer;
   color: white;
 }
+
 .post-footer form {
   margin: 0;
   padding: 0;
@@ -97,40 +93,17 @@
   width: 1.4rem;
   height: 1.4rem;
 }
+
 .like-button:active {
   transform: scale(0.95);
 }
 
-.options-btn img {
-  width: 30px;
-  height: 30px;
-}
-
-.options-btn:active {
-  transform: scale(0.85);
-}
-
-.dropdown-menu a {
-  text-decoration: none;
-}
-.post-options {
-  position: relative;
-}
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  min-width: 60px;
-  background: #020719;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 5px;
-}
 .post-footer {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
+
 .post-footer-cotainer {
   display: flex;
   flex-direction: column;

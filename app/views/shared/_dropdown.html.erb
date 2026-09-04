@@ -1,0 +1,10 @@
+<div class="dropdown-options" data-controller="dropdown">
+  <button class="dropdown-btn" data-action="click->dropdown#toggle">
+    <%= image_tag button_icon, alt: button_alt %>
+  </button>
+  <div data-dropdown-target="menu" class="dropdown-menu hidden">
+    <% options.each do |option| %>
+      <%= link_to option[:name], option[:path] %>
+    <% end %>
+  </div>
+</div>

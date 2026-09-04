@@ -1,4 +1,30 @@
 <main class="index-container">
+  <div class="user-header">
+    <h1>
+      <%= case params[:filter]
+      when "following"
+        "Following"
+      when "followers"
+        "Followers"
+      when "requested"
+        "Requested"
+      when "requests"
+        "Requests"
+      else
+        "All"
+      end %>
+    </h1>
+    <%= render "shared/dropdown",
+    button_icon: "filter.svg",
+    button_alt: "Filter",
+    options: [
+      { name: "All", path: users_path },
+      { name: "Following", path: users_path(filter: "following") },
+      { name: "Followers", path: users_path(filter: "followers") },
+      { name: "Requested", path: users_path(filter: "requested") },
+      { name: "Requests", path: users_path(filter: "requests") }
+    ] %>
+  </div>
   <% @users.each do |user| %>
     <%= render "shared/user", user: user%>
   <% end %>

@@ -12,15 +12,13 @@
       </span>
     </div>
     <% if current_user==post.user %>
-      <div class="post-options" data-controller="dropdown">
-        <button class="options-btn" data-action="click->dropdown#toggle">
-          <%= image_tag "dots.svg", alt: "Options" %>
-        </button>
-        <div data-dropdown-target="menu" class="dropdown-menu hidden">
-          <%= link_to "Edit", edit_post_path(post) %>
-          <%= button_to "Delete", post_path(post),method: :delete, data: { turbo_confirm: "Delete this post?" }%>
-        </div>
-      </div>
+      <%= render "shared/dropdown",
+    button_icon: "dots.svg",
+    button_alt: "Options",
+    options: [
+      { name: "Edit", path: edit_post_path(post) },
+      { name: "Delete", path: post_path(post) }
+    ] %>
     <% end %>
   </div>
   <p>

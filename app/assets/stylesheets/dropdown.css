@@ -1,0 +1,47 @@
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  opacity: 0.85;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  min-width: 85px;
+  background: #020719;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-menu.hidden {
+  display: none;
+}
+
+.dropdown-options {
+  position: relative;
+}
+
+.dropdown-btn:active {
+  transform: scale(0.9);
+}
+.dropdown-btn img {
+  width: 30px;
+  height: 30px;
+}
+.dropdown-btn:hover {
+  opacity: 0.85;
+}
+.dropdown-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: white;
+}
