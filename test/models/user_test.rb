@@ -1,7 +1,9 @@
 require "test_helper"
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "has many posts association" do
+    association = User.reflect_on_association(:posts)
+
+    assert_equal :has_many, association.macro
+  end
 end
