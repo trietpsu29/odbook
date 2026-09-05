@@ -8,6 +8,10 @@ It includes core social features such as user authentication, posts, likes, comm
 
 [View live app](https://odbook.onrender.com/)
 
+Demo account:
+- Email: demo@example.com
+- Password: password
+
 ## Preview
 
 ### Landing Page
