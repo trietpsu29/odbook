@@ -1,6 +1,6 @@
-# OdinBook
+# OdBook
 
-OdinBook is a social networking web application built with **Ruby on Rails** as part of [The Odin Project](https://www.theodinproject.com/lessons/ruby-on-rails-odin-book) curriculum.
+OdBook is a social networking web application built with **Ruby on Rails** as part of [The Odin Project](https://www.theodinproject.com/lessons/ruby-on-rails-odin-book) curriculum.
 
 It includes core social features such as user authentication, posts, likes, comments, follow requests, profile management, and image uploads. The project uses modern Rails tools including **Turbo**, **Stimulus**, **Devise**, **OmniAuth**, and **Active Storage**.
 
