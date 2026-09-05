@@ -26,15 +26,23 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  /* background-color: #020719; */
-  background-image: url("page-bg.jpg");
+  background-color: #020719;
   background-size: cover;
   background-position: center;
   color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+.main-layout {
+  background-image: url("page-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 img {
@@ -76,6 +84,19 @@ a {
 
 .hidden {
   display: none;
+}
+
+.flash-notice {
+  padding: 1rem 1.2rem;
+  border-radius: 20px;
+  width: 40vw;
+
+  color: #28a745;
+  border: 1px solid #28a745;
+  background-color: rgba(40, 167, 69, 0.15);
+
+  font-weight: bold;
+  text-align: center;
 }
 
 @import "landing";

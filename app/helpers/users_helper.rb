@@ -1,6 +1,6 @@
 module UsersHelper
   def user_avatar(user, class_name: "avatar", data: {})
-    if user.avatar.attached?
+    if user.avatar.attached? && user.avatar.blob.persisted?
       image_tag user.avatar,
         class: class_name,
         data: data

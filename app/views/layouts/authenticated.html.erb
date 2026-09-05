@@ -21,8 +21,17 @@
   <body>
     <div id="flash-container">
     </div>
-    <%= render "shared/header"%>
-    <%= yield %>
-    <%= render "shared/footer" %>
+    <main class="main-layout">
+      <%= render "shared/header"%>
+      <div class="notice-container">
+        <% if flash[:notice] %>
+          <div class="flash-message flash-notice">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+      </div>
+      <%= yield %>
+      <%= render "shared/footer" %>
+    </main>
   </body>
 </html>

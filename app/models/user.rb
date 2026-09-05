@@ -36,4 +36,15 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0, 20]
     end
   end
+  validate :avatar_size
+
+  private
+
+    def avatar_size
+      return unless avatar.attached?
+
+      if avatar.blob.byte_size > 10.megabytes
+        errors.add(:avatar, "file size must be less than 10MB")
+      end
+    end
 end

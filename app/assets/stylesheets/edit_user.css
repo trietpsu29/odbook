@@ -139,3 +139,22 @@
   cursor: pointer;
   font-weight: bold;
 }
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-error {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin: 0;
+  padding-left: 0.8rem;
+}
+
+.password-hint {
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin: 0;
+  color: #cccccc;
+}
