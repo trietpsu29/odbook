@@ -8,3 +8,15 @@
 .profile .user-infos {
   gap: 1rem;
 }
+.profile-infos {
+  display: flex;
+  flex-direction: column;
+}
+.profile-bio {
+  width: 40vw;
+  min-width: 0;
+  padding: 15px;
+  border: 1px solid #cccccc58;
+  border-top: none;
+  border-radius: 12px;
+}

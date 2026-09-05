@@ -7,9 +7,12 @@ module UsersHelper
     end
   end
   def follow_button(user)
-    return if user == current_user
+    if user == current_user
+      link_to "Edit",
+      edit_user_registration_path,
+      class: "follow-button edit"
 
-    if current_user.following_relationships.exists?(followed: user)
+    elsif current_user.following_relationships.exists?(followed: user)
 
       follow = current_user.following_relationships.find_by(followed: user)
 

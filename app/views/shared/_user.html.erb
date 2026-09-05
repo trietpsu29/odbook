@@ -23,4 +23,9 @@
   <div id="follow_button_<%= user.id %>">
     <%= follow_button(user) %>
   </div>
+  <% if local_assigns[:show_bio] %>
+    <div class="profile-bio">
+      <%= user.bio.nil? ? "No bio yet" : user.bio %>
+    </div>
+  <% end %>
 </div>
