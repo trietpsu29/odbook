@@ -1,9 +1,10 @@
 .header {
   padding: 0.5rem 2rem;
-  border-bottom: 1px solid #a7a7a7;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   position: sticky;
+  border-radius: 0 0 20px 20px;
   top: 0;
-  background-color: #020719;
+  background-color: #020719bb;
   z-index: 100;
 }
 

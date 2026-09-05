@@ -1,2 +1,9 @@
-<h1><%= @user.name %></h1>
-<%= user_avatar(@user,class_name:"profile-avatar")%>
+<main class="index-container profile">
+  <%= render "shared/user", user: @user %>
+  <h2 class = "recent-posts">Recent Posts</h2>
+  <% if @user.followers.include?(current_user) || @user == current_user%>
+    <%= render "shared/posts", posts: @posts%>
+  <% else %>
+    <h3>Follow them to see their posts.</h3>
+  <% end %>
+</main>

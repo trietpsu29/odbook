@@ -1,0 +1,7 @@
+<% if posts.blank?%>
+  <h3>Nothing here yet...</h3>
+<%else%>
+  <% posts.each do |post| %>
+    <%= render "shared/post", post: post%>
+  <% end %>
+<% end %>

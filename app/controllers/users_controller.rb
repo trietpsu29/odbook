@@ -25,6 +25,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    @posts = Post.includes(:user, images_attachments: :blob)
+    .where(user: @user)
+    .order(created_at: :desc)
   end
 
   def edit

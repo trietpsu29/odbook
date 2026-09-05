@@ -1,6 +1,4 @@
-<main class="index-container">
+<main class="index-container profile">
   <%= render "shared/post_form", post: @post %>
-  <% @posts.each do |post| %>
-    <%= render "shared/post", post: post%>
-  <% end %>
+  <%= render "shared/posts", posts: @posts%>
 </main>

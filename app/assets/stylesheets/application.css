@@ -26,7 +26,10 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  background-color: #020719;
+  /* background-color: #020719; */
+  background-image: url("page-bg.jpg");
+  background-size: cover;
+  background-position: center;
   color: white;
   min-height: 100vh;
   display: flex;

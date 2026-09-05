@@ -39,7 +39,8 @@ module UsersHelper
       button_to "Remove follower",
         follow_path(follow),
         method: :delete,
-        class: "follow-button remove-follower"
+        class: "follow-button remove-follower",
+        data: { turbo_confirm: "Are you sure you want to unfollow this user?" }
 
     else
 
