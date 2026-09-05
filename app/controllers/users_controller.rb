@@ -34,6 +34,10 @@ class UsersController < ApplicationController
   end
 
   def update
+    if params[:remove_avatar] == "1"
+      @user.avatar.purge
+    end
+
     if @user.update(user_params)
       redirect_to user_path(@user)
     else

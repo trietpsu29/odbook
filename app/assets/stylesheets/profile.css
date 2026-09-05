@@ -5,6 +5,12 @@
   width: 120px;
   height: 120px;
 }
+
+.profile .user-avatar:hover,
+.profile .user-name:hover {
+  opacity: 1;
+}
+
 .profile .user-infos {
   gap: 1rem;
 }

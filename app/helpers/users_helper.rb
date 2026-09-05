@@ -1,16 +1,22 @@
 module UsersHelper
-  def user_avatar(user, class_name: "avatar")
+  def user_avatar(user, class_name: "avatar", data: {})
     if user.avatar.attached?
-      image_tag user.avatar, class: "#{class_name}"
+      image_tag user.avatar,
+        class: class_name,
+        data: data
     else
-      image_tag "default-avatar.svg", class: "#{class_name}"
+      image_tag "default-avatar.svg",
+        class: class_name,
+        data: data
     end
   end
   def follow_button(user)
     if user == current_user
-      link_to "Edit",
-      edit_user_registration_path,
-      class: "follow-button edit"
+      content_tag :div, class: "edit-profile-container" do
+        link_to "Edit profile",
+          edit_user_path(current_user),
+          class: "follow-button edit"
+      end
 
     elsif current_user.following_relationships.exists?(followed: user)
 

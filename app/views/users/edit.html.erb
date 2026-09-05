@@ -1,5 +1,47 @@
-<%= form_with model: @user do |f| %>
-  <%= f.text_field :name %>
-  <%= f.file_field :avatar %>
-  <%= f.submit %>
-<% end %>
+<main class="index-container edit-profile">
+  <div class="profile-form">
+    <h2>Edit profile</h2>
+    <%= form_with model: @user, class: "profile-form-content" do |f| %>
+      <div class="profile-avatar-upload" data-controller="avatar-preview">
+        <div class="avatar-preview">
+          <%= user_avatar(
+                @user,
+                class_name: "user-avatar",
+                data: { avatar_preview_target: "preview" })%>
+          <div class="avatar-upload-btn-container">
+            <%= f.file_field :avatar,
+                class: "file-input",
+                id: "avatar-upload",
+                data: { action: "change->avatar-preview#show" } %>
+            <label for="avatar-upload" class="avatar-upload-button">
+              <%= image_tag "camera_plus.svg" %>
+            </label>
+          </div>
+        </div>
+        <% if @user.avatar.attached? %>
+          <div class="avatar-actions">
+            <%= button_tag "Delete profile picture",
+              type: "submit",
+              name: "remove_avatar",
+              value: "1",
+              class: "delete-avatar-button" %>
+          </div>
+        <% end %>
+      </div>
+      <%= f.text_field :name,
+          placeholder: "Name",
+          class: "profile-name-input" %>
+      <%= f.text_area :bio,
+          placeholder: "Let people know who you are...",
+          class: "profile-bio-input" %>
+      <div class="profile-form-actions">
+        <%= f.submit "Save profile",
+            class: "profile-save-button" %>
+      </div>
+    <% end %>
+  </div>
+  <%= render "devise/registrations/edit",
+    resource: @user,
+    resource_name: :user,
+    devise_mapping: Devise.mappings[:user] %>
+</main>
