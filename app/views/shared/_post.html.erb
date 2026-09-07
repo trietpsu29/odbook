@@ -2,7 +2,7 @@
   <div class="post-card">
     <div class="post-header">
       <div class="post-infos">
-        <%= link_to user_path(post.user), class: "post-info" do %>
+        <%= link_to user_path(post.user), class: "post-info", data: { turbo_frame: "_top" } do %>
           <%= user_avatar(post.user, class_name:"post-avatar") %>
           <h3>
             <%= post.user.name.presence || post.user.email %>

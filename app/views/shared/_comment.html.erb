@@ -1,11 +1,11 @@
 <div class="comment">
-  <%= link_to user_path(comment.user), class: "comment-info" do %>
+  <%= link_to user_path(comment.user), class: "comment-info", data: { turbo_frame: "_top" } do %>
     <%= user_avatar(comment.user,class_name:"comment-avatar") %>
   <% end %>
   <div class="comment-content">
     <div class="comment-header">
       <div class="comment-infos">
-        <%= link_to user_path(comment.user), class: "comment-info" do %>
+        <%= link_to user_path(comment.user), class: "comment-info", data: { turbo_frame: "_top" } do %>
           <strong><%= comment.user.name.presence || comment.user.email %></strong>
         <% end %>
         <%= comment.updated_at.strftime("%d/%m/%Y %H:%M")%>
