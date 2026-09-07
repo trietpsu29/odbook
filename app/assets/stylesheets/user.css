@@ -29,7 +29,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  text-decoration: none;
   flex-wrap: wrap;
 }
 
@@ -88,8 +87,10 @@
   flex-wrap: wrap;
   align-items: center;
 }
-.follow-button:hover {
+.follow-button:hover,
+.follow-list:hover {
   opacity: 0.85;
+  text-decoration: underline;
 }
 
 .follow-button:active,
@@ -101,5 +102,9 @@
 .follow-button.edit {
   border: 1px solid #1877f2;
   background-color: transparent;
+  text-decoration: none;
+}
+.follow-list,
+.user-info {
   text-decoration: none;
 }

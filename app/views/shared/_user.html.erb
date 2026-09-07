@@ -12,16 +12,25 @@
       <span>
         <%= user.posts.count %> posts
       </span>
-      <span>
-        <%= user.followers.count %> followers
-      </span>
-      <span>
-        <%= user.following.count %> following
-      </span>
+      <% if user == current_user %>
+        <%= link_to users_path(filter: "followers"), class: "follow-list" do %>
+          <%= user.followers.count %> followers
+        <% end %>
+        <%= link_to users_path(filter: "following"), class: "follow-list" do %>
+          <%= user.following.count %> following
+        <% end %>
+      <% else %>
+        <span>
+          <%= user.followers.count %> followers
+        </span>
+        <span>
+          <%= user.following.count %> following
+        </span>
+      <% end %>
     </div>
   </div>
   <div id="follow_button_<%= user.id %>">
-    <%= follow_button(user) %>
+    <%= follow_button(user, params[:filter]) %>
   </div>
   <% if local_assigns[:show_bio] %>
     <div class="profile-bio">
