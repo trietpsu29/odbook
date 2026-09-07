@@ -19,15 +19,6 @@ puts "Creating users..."
 
 users = []
 
-# Avatar files trong:
-# app/assets/images/avatars/
-#
-# ví dụ:
-# avatar1.jpg
-# avatar2.jpg
-# avatar3.jpg
-# avatar4.jpg
-
 avatar_files = Dir[Rails.root.join("app/assets/images/avatars/*")]
 
 10.times do |i|

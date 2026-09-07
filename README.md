@@ -8,9 +8,21 @@ It includes core social features such as user authentication, posts, likes, comm
 
 [View live app](https://odbook.onrender.com/)
 
-Demo account:
-- Email: demo@example.com
-- Password: password
+### Demo Account
+
+User can be from 1 to 10
+
+Email:
+
+```
+user1@example.com
+```
+
+Password:
+
+```
+password
+```
 
 ## Preview
 
