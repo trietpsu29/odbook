@@ -90,7 +90,6 @@
 .follow-button:hover,
 .follow-list:hover {
   opacity: 0.85;
-  text-decoration: underline;
 }
 
 .follow-button:active,
@@ -107,4 +106,7 @@
 .follow-list,
 .user-info {
   text-decoration: none;
+}
+.follow-list:hover {
+  text-decoration: underline;
 }
