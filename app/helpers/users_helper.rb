@@ -56,7 +56,8 @@ module UsersHelper
         button_to "Unfollow",
           follow_path(follow),
           method: :delete,
-          class: "follow-button unfollow"
+          class: "follow-button unfollow",
+          data: { turbo_confirm: "Unfollow this user?" }
 
       elsif current_user.sent_follow_requests.exists?(requested: user)
         request = current_user.sent_follow_requests.find_by(requested: user)
