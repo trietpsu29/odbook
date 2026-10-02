@@ -13,4 +13,12 @@ class DebugController < ApplicationController
       devise_delivery_method: devise.delivery_method
     }.inspect
   end
+  def mail
+    Devise::Mailer.reset_password_instructions(
+      User.first,
+      "test-token"
+    ).deliver_now
+
+    render plain: "MAIL SENT"
+  end
 end
