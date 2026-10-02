@@ -3,6 +3,13 @@
     <%= render "shared/brand" %>
     <%= render "shared/actions_side" do %>
       <div class="login-container">
+        <div class="notice-container">
+          <% if flash[:notice] %>
+            <div class="flash-message flash-notice">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+        </div>
         <%= form_for(
           resource,
           as: resource_name,

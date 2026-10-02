@@ -3,6 +3,13 @@
     <%= render "shared/brand" %>
     <%= render "shared/actions_side" do %>
       <div class="landing-actions">
+        <div class="notice-container">
+          <% if flash[:notice] %>
+            <div class="flash-message flash-notice">
+              <%= flash[:notice] %>
+            </div>
+          <% end %>
+        </div>
         <div class="acc">
           <%= button_to "Log in",
               new_user_session_path,
