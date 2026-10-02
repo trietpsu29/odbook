@@ -1,13 +1,16 @@
 class DebugController < ApplicationController
   def smtp
-    settings = ActionMailer::Base.smtp_settings
+    base = ActionMailer::Base
+    devise = Devise::Mailer
 
     render plain: {
-      address: settings[:address],
-      port: settings[:port],
-      username_present: settings[:user_name].present?,
-      password_present: settings[:password].present?,
-      delivery_method: ActionMailer::Base.delivery_method
+      base_address: base.smtp_settings[:address],
+      base_port: base.smtp_settings[:port],
+      base_delivery_method: base.delivery_method,
+
+      devise_address: devise.smtp_settings[:address],
+      devise_port: devise.smtp_settings[:port],
+      devise_delivery_method: devise.delivery_method
     }.inspect
   end
 end
