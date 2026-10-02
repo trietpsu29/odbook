@@ -6,7 +6,7 @@ It includes core social features such as user authentication, posts, likes, comm
 
 ## Live Demo
 
-[View live app](https://odbook.onrender.com/)
+[View live app](https://odbook.dpdns.org)
 
 ### Demo Account
 
