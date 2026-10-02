@@ -107,6 +107,8 @@ Deployed using:
 - **Render** for web hosting
 - **Neon PostgreSQL** for production database
 - **Cloudinary** for image storage with Active Storage
+- **Resend** for transactional email delivery
+- **DigitalPlat** DNS for domain and DNS management
 
 Production secrets are managed securely through Rails encrypted credentials.
 
@@ -114,6 +116,7 @@ Required environment variables:
 
 - `DATABASE_URL`
 - `RAILS_MASTER_KEY`
+- `RESEND_API_KEY`
 
 ## Future Improvements
 
