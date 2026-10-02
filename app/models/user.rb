@@ -37,8 +37,13 @@ class User < ApplicationRecord
     end
   end
   validate :avatar_size
+  after_create :send_welcome_email
 
   private
+
+    def send_welcome_email
+      UserMailer.welcome_email(self).deliver_now
+    end
 
     def avatar_size
       return unless avatar.attached?
