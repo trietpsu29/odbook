@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   end
 
   resources :follows, only: [ :destroy ]
+  get "/debug/smtp", to: "debug#smtp"
 end
