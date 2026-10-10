@@ -27,10 +27,11 @@ module UsersHelper
     elsif filter == "following"
       follow = current_user.following_relationships.find_by(followed: user)
 
-      button_to "Unfolclow",
+      button_to "Unfollow",
         follow_path(follow),
         method: :delete,
-        class: "follow-button unfollow"
+        class: "follow-button unfollow",
+        data: { turbo_confirm: "Unfollow this user?" }
 
     elsif filter == "followers"
       follow = current_user.follower_relationships.find_by(follower: user)
